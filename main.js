@@ -16,6 +16,17 @@ app.use(express.urlencoded({ extended: true }))
         password: String 
     }
 */
+app.get('/', function(req, res){
+  const users = db.findAll();
+  console.log(users);
+  res.send(users);
+})
+
+app.post('/', function(req, res){
+  const newUser =  db.create(req.body);
+  res.send("Usuário Cadastrado com sucesso!");
+});
+
 
 app.listen(3030, () => {
   console.log("Esse servidor está rodando em http://localhost:3030")
