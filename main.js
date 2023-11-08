@@ -8,7 +8,7 @@ app.use(express.urlencoded({ extended: false }))
 
 app.get('/', function(req, res){
   const users = db.findAll();
-  console.log(users);
+  // console.log(users);
   res.send(users);
 })
 
@@ -20,7 +20,7 @@ app.get('/:id/:nome', function(req, res){
 
 app.get('/user?', function(req,res){
   const userWithQuery = db.findById(req.query.id);
-  console.log(req.query)
+  // console.log(req.query)
   res.send(userWithQuery);
 });
 
